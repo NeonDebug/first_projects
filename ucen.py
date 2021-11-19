@@ -33,14 +33,14 @@ def new_ball():
 
 
 def new_ball_2():
-    global x2, y2, r2
+    global x, y, r
     '''рисует второй шарик '''
-    x2 = randint(100, 1100)
-    y2 = randint(100, 900)
-    r2 = randint(10, 100)
+    x = randint(100, 1100)
+    y = randint(100, 900)
+    r = randint(10, 100)
 
     color = COLORS[randint(0, 5)]
-    circle(screen, color, (x2, y2), r2)
+    circle(screen, color, (x, y), r)
 
 
 pygame.display.update()
@@ -57,14 +57,13 @@ while not finished:
         elif event.type==pygame.MOUSEBUTTONDOWN:
             cursor_pos_x, cursor_pos_y = pygame.mouse.get_pos()
 
-            if r >= ((((cursor_pos_x - x ) ** 2) + ((cursor_pos_y - y) ** 2)) ** 0.5):
-                if r < 20:
-                    print(points)
-                    points =+ 5
-                if r > 20:
-                    print(points)
-                    points =+ 1
+            if r >= ((((cursor_pos_x - x) ** 2) + ((cursor_pos_y - y) ** 2)) ** 0.5):
 
+                print(points)
+                points = points + 1
+                if r < 30:
+                    print(points)
+                    points = points + 5
             else:
                 print("Missed")
 
