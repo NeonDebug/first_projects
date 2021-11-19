@@ -15,13 +15,17 @@ CYAN = (0, 255, 255)
 BLACK = (0, 0, 0)
 COLORS = [RED, BLUE, YELLOW, GREEN, MAGENTA, CYAN]
 
+
 def new_ball():
+    global x, y, r
     '''рисует новый шарик '''
     x = randint(100, 1100)
     y = randint(100, 900)
     r = randint(10, 100)
+
     color = COLORS[randint(0, 5)]
     circle(screen, color, (x, y), r)
+
 
 pygame.display.update()
 clock = pygame.time.Clock()
@@ -33,7 +37,12 @@ while not finished:
         if event.type == pygame.QUIT:
             finished = True
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            print('Click!')
+            cursor_pos_x, cursor_pos_y = pygame.mouse.get_pos()
+
+            if (r) >= (((( cursor_pos_x - x )**2) + ((cursor_pos_y-y)**2) )**0.5):
+                print ("Cool")
+            else:
+                print ("Not cool")
     new_ball()
     pygame.display.update()
     screen.fill(BLACK)
