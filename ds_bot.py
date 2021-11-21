@@ -20,4 +20,4 @@ async def on_ready():
     print ("Bot gatov. ")
     bot.load_extension('dismusic')
 
-bot.run('OTExOTA2MzMyOTAxMjY5NTA0.YZoM9A.EIwnioJhXvPXjKOaoIRkxi2_960')
+bot.run('OToIRkxi2_960')
